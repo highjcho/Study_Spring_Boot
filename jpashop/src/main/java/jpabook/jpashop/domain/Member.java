@@ -10,7 +10,6 @@ import java.util.List;
 @Entity
 @Getter @Setter
 public class Member {
-
     @Id @GeneratedValue
     @Column(name = "member_id")
     private Long id;
@@ -20,7 +19,6 @@ public class Member {
     @Embedded
     private Address address;
 
-    @OneToMany(mappedBy = "order_id")
+    @OneToMany(mappedBy = "member") // 읽기 전용
     private List<Order> orders = new ArrayList<>();
-
 }
